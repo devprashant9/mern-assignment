@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AddJobForm from "./components/AddJobForm";
 import JobList from "./components/JobList";
-import Filter from "./components/Filter";
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router";
+
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
   const [applications, setApplications] = useState([]);
@@ -12,7 +13,7 @@ const App = () => {
   // Fetch all job applications
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/jobs")
+      .get(`${API_URL}/api/jobs`)
       .then((res) => setApplications(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -25,7 +26,7 @@ const App = () => {
   // Handle updating application status
   const updateJobStatus = (id, newStatus) => {
     axios
-      .patch(`http://localhost:5000/api/jobs/${id}`, { status: newStatus })
+      .patch(`${API_URL}/api/jobs/${id}`, { status: newStatus })
       .then((res) => {
         const updatedApps = applications.map((app) =>
           app._id === id ? { ...app, status: newStatus } : app
@@ -38,7 +39,7 @@ const App = () => {
   // Handle deleting job application
   const deleteJobApplication = (id) => {
     axios
-      .delete(`http://localhost:5000/api/jobs/${id}`)
+      .delete(`${API_URL}/api/jobs/${id}`)
       .then(() => setApplications(applications.filter((app) => app._id !== id)))
       .catch((err) => console.error(err));
   };
