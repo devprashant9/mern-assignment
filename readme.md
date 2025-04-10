@@ -102,5 +102,3 @@ Even if I didn’t fully understand some parts of the documentation, I would sha
 Throughout the development, I followed the DRY (Don't Repeat Yourself) principle. I tried to keep my functions independent and reusable, and here again, AI supported me by helping clean and organize the code structure.
 
 One important thing I realised is that AI doesn't know the exact requirements of a project unless we clearly communicate them. So, when I gave it well-structured data and clear instructions, it worked much better — faster, more accurately, and with fewer errors.
-
-## Future Enhancements to Make This Project More Appealing
