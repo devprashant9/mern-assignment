@@ -3,7 +3,7 @@ import { createJob } from "../services/jobService";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router";
 
-const AddJobForm = () => {
+const AddJobForm = ({addJobApplication}) => {
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [status, setStatus] = useState("Applied");
@@ -15,8 +15,6 @@ const AddJobForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(dateOfApplication);
-
     const newJob = {
       company,
       role,
@@ -24,6 +22,7 @@ const AddJobForm = () => {
       dateOfApplication,
       link,
     };
+    addJobApplication(newJob);
 
     const response = await createJob(newJob);
     if (!response?.message) {
