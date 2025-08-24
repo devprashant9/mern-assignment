@@ -13,7 +13,7 @@ const JobList = ({ applications, updateJobStatus, deleteJobApplication, setFilte
 
   return (
     <div className="mb-4">
-      <div className="max-w-md max-w-md my-2 px-6 shadow-md rounded-xl flex gap-8">
+      <div className="max-w-md my-2 px-6 shadow-md rounded-xl flex gap-8">
         <Link to="/">
           <button
             className="max-w-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200 cursor-pointer"
